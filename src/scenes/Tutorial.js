@@ -101,24 +101,107 @@ export default class Tutorial extends Scene {
         this.addChild(footer);
 
         button.on('pointerdown', () => {
-                    this.removeChild(circle, circle2, text);
-                    const circle5 = new PIXI.Graphics();
-                    circle5.beginFill(0xffffff, 0.25);
-                    circle5.drawCircle(-30, 170, 8, 8, 80);
-                    circle5.endFill();
+            this.removeChild(circle, circle2, text);
+            const circle5 = new PIXI.Graphics();
+            circle5.beginFill(0xffffff, 0.25);
+            circle5.drawCircle(-30, 170, 8, 8, 80);
+            circle5.endFill();
 
-                    const circle6 = new PIXI.Graphics();
-                    circle6.beginFill(0xffffff, 1);
-                    circle6.drawCircle(-10, 170, 8, 8, 80);
-                    circle6.endFill();
+            const circle6 = new PIXI.Graphics();
+            circle6.beginFill(0xffffff, 1);
+            circle6.drawCircle(-10, 170, 8, 8, 80);
+            circle6.endFill();
 
-                    const text3 = new Text(`Press the "D" key to move the shield right`, style);
-                    text3.y = 85
-                    text3.anchor.set(0.5);
-                    this.addChild(circle5, circle6, text3);
-                    
-            
+            const text3 = new Text(`Press the "D" key to move the shield right`, style);
+            text3.y = 85
+            text3.anchor.set(0.5);
+            this.addChild(circle5, circle6, text3);
+            this.removeChild(button)
+
+            const button2 = new PIXI.Graphics();
+		    button2.beginFill(0xffffff,1);
+		    button2.drawRoundedRect(-100,300,200,80, 70);
+		    button2.endFill();
+            this.removeChild(text2)
+            this.addChild(button2, text2)
+            button2.interactive = true;
+            button2.buttonMode = true;
+
+            button2.on('pointerdown', () => {
+                this.removeChild(circle6)
+
+                const circle7 = new PIXI.Graphics();
+                circle7.beginFill(0xffffff, 0.25);
+                circle7.drawCircle(-10, 170, 8, 8, 80);
+                circle7.endFill();
+
+
+                const circle8 = new PIXI.Graphics();
+                circle8.beginFill(0xffffff, 1);
+                circle8.drawCircle(10, 170, 8, 8, 80);
+                circle8.endFill();
+
+                this.removeChild(text3)
+
+                const text4 = new Text(`Press the "W" key to move the shield right`, style);
+                text4.y = 85
+                text4.anchor.set(0.5); 
+
+                this.addChild(circle7, circle8, text4);
+
+                this.removeChild(button2);
+
+                const button3 = new PIXI.Graphics();
+		        button3.beginFill(0xffffff,1);
+		        button3.drawRoundedRect(-100,300,200,80, 70);
+		        button3.endFill();
+                this.removeChild(text2)
+                this.addChild(button3, text2)
+                button3.interactive = true;
+                button3.buttonMode = true;
+
+                button3.on('pointerdown', () => {
+                    this.removeChild(circle8)
+
+                    const circle9 = new PIXI.Graphics();
+                    circle9.beginFill(0xffffff, 0.25);
+                    circle9.drawCircle(10, 170, 8, 8, 80);
+                    circle9.endFill();
+
+
+                    const circle10 = new PIXI.Graphics();
+                    circle10.beginFill(0xffffff, 1);
+                    circle10.drawCircle(30, 170, 8, 8, 80);
+                    circle10.endFill();
+
+                    this.removeChild(text4)
+
+                    const text5 = new Text(`Press the "S" key to move the shield right`, style);
+                    text5.y = 85
+                    text5.anchor.set(0.5); 
+
+                    this.addChild(circle9, circle10, text5);
+
+                    this.removeChild(button3);
+
+                    const button4 = new PIXI.Graphics();
+		            button4.beginFill(0xffffff,1);
+		            button4.drawRoundedRect(-100,300,200,80, 70);
+		            button4.endFill();
+                    this.removeChild(text2)
+                    this.addChild(button4, text2)
+                    button4.interactive = true;
+                    button4.buttonMode = true;
+
+                    button4.on('pointerdown', () => {
+                    this.start();
+                    })
+                })
+            })
+        
         })
+
+        
     }
 
     async start() {
