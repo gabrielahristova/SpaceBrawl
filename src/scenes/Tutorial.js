@@ -4,7 +4,9 @@ import Footer from '../components/Footer';
 import playScene from '../assets/play-scene.png';
 import keyDefault from '../assets/key-default.png';
 import arrow from '../assets/arrow.png';
-import { Text, TextStyle } from 'pixi.js'
+import { Text, TextStyle } from 'pixi.js';
+import Game from '../Game';
+import Countdown from './Countdown';
 
 export default class Tutorial extends Scene {
     async onCreated() { 
@@ -98,14 +100,14 @@ export default class Tutorial extends Scene {
         footer.y = window.innerHeight / 2 - footer.height;
         this.addChild(footer);
 
+        button.on('pointerdown', () => {
+            this.start();
+        })
         
     }
 
     async start() {
-        await this.switchScene(Tutorial, { scene: 'tutorial' });
-        await this.currentScene.finish;
-    
-        this.switchScene(Tutorial, { scene: 'tutorial' });
+        this.switchScene(Countdown, { scene: 'countdown' });
       }
     
       switchScene(constructor, scene) {

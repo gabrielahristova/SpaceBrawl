@@ -55,9 +55,6 @@ export default class Loading extends Scene {
       }
 
       async start() {
-        await this.switchScene(Loading, { scene: 'loading' });
-        await this.currentScene.finish;
-    
         this.switchScene(Tutorial, { scene: 'tutorial' });
       }
     
