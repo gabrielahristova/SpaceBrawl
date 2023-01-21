@@ -4,6 +4,10 @@ import Footer from '../components/Footer';
 import playScene from '../assets/play-scene.png';
 import { Text, TextStyle } from 'pixi.js';
 import Game from '../Game';
+import planet1 from '../assets/planet-1.png';
+import planet2 from '../assets/planet-2.png';
+import planet3 from '../assets/planet-3.png';
+import planet4 from '../assets/planet-4.png';
 
 export default class Countdown extends Scene {
     async onCreated() { 
@@ -12,12 +16,32 @@ export default class Countdown extends Scene {
         background.height = window.innerHeight 
         background.anchor.set(0.5)
 
+        const firstPlanet = Sprite.from(planet1);
+        firstPlanet.anchor.set(0.5)
+        firstPlanet.y = 400
+        firstPlanet.x = 500
+
+        const secondPlanet = Sprite.from(planet2);
+        secondPlanet.anchor.set(0.5)
+        secondPlanet.y = -400
+        secondPlanet.x = -730
+
+        const thirdPlanet = Sprite.from(planet3);
+        thirdPlanet.anchor.set(0.5)
+        thirdPlanet.y = 365
+        thirdPlanet.x = -900
+
+        const fourthPlanet = Sprite.from(planet4);
+        fourthPlanet.anchor.set(0.5)
+        fourthPlanet.y = -550
+        fourthPlanet.x = 950
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
         this.addChild(footer);
 
-        this.addChild(background, footer);
+        this.addChild(background, firstPlanet, secondPlanet, thirdPlanet, fourthPlanet, footer);
     }
 
     async start() {
