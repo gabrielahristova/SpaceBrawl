@@ -75,7 +75,7 @@ export default class Tutorial extends Scene {
         const circle = new PIXI.Graphics();
         circle.beginFill(0xffffff, 1);
         circle.drawCircle(-30, 170, 8, 8, 80);
-        circle.endFill();
+        
 
         const circle2 = new PIXI.Graphics();
         circle2.beginFill(0xffffff, 0.25);
@@ -101,9 +101,24 @@ export default class Tutorial extends Scene {
         this.addChild(footer);
 
         button.on('pointerdown', () => {
-            this.start();
+                    this.removeChild(circle, circle2, text);
+                    const circle5 = new PIXI.Graphics();
+                    circle5.beginFill(0xffffff, 0.25);
+                    circle5.drawCircle(-30, 170, 8, 8, 80);
+                    circle5.endFill();
+
+                    const circle6 = new PIXI.Graphics();
+                    circle6.beginFill(0xffffff, 1);
+                    circle6.drawCircle(-10, 170, 8, 8, 80);
+                    circle6.endFill();
+
+                    const text3 = new Text(`Press the "D" key to move the shield right`, style);
+                    text3.y = 85
+                    text3.anchor.set(0.5);
+                    this.addChild(circle5, circle6, text3);
+                    
+            
         })
-        
     }
 
     async start() {
