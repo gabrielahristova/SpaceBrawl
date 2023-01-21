@@ -52,6 +52,10 @@ export default class Tutorial extends Scene {
 		button.drawRoundedRect(-100,300,200,80, 70);
 		button.endFill();
 
+        //add interaction to the button
+        button.interactive = true;
+        button.buttonMode = true;
+
         //button 'Next'
         const style2 = new TextStyle({
             fontFamily: 'Arial',
