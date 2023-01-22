@@ -143,7 +143,7 @@ export default class Tutorial extends Scene {
 
                 this.removeChild(text3)
 
-                const text4 = new Text(`Press the "W" key to move the shield right`, style);
+                const text4 = new Text(`Press the "W" key to activate upper shield`, style);
                 text4.y = 85
                 text4.anchor.set(0.5); 
 
@@ -176,7 +176,7 @@ export default class Tutorial extends Scene {
 
                     this.removeChild(text4)
 
-                    const text5 = new Text(`Press the "S" key to move the shield right`, style);
+                    const text5 = new Text(`Press the "S" key to activate lower shield`, style);
                     text5.y = 85
                     text5.anchor.set(0.5); 
 
