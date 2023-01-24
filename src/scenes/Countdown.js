@@ -41,12 +41,19 @@ export default class Countdown extends Scene {
         player.anchor.set(0.5)
         player.x = 430
 
+        const enemyPlayer = Sprite.from(rover);
+        enemyPlayer.anchor.set(0.5)
+        enemyPlayer.scale.x = -1
+        enemyPlayer.scale.y = -1
+        enemyPlayer.x = -700
+        enemyPlayer.y = -120
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
         this.addChild(footer);
 
-        this.addChild(background, firstPlanet, secondPlanet, thirdPlanet, fourthPlanet, player, footer);
+        this.addChild(background, firstPlanet, secondPlanet, thirdPlanet, fourthPlanet, player, enemyPlayer, footer);
     }
 
     async start() {
