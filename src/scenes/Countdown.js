@@ -10,6 +10,8 @@ import planet3 from '../assets/planet-3.png';
 import planet4 from '../assets/planet-4.png';
 import rover from '../assets/rover.png';
 import roverShadow from '../assets/rover-shadow.png';
+import shieldActive from '../assets/shield-active.png';
+import shieldInactive from '../assets/shield-inactive.png';
 
 export default class Countdown extends Scene {
     async onCreated() { 
@@ -61,12 +63,24 @@ export default class Countdown extends Scene {
         enemyShadow.x = -700
         enemyShadow.y = -185
 
+        const activeShield = Sprite.from(shieldActive)
+        activeShield.anchor.set(0.5)
+        activeShield.rotation = -0.80
+        activeShield.x = 430
+        activeShield.y = -145
+
+        const inactiveShield = Sprite.from(shieldInactive);
+        inactiveShield.anchor.set(0.5)
+        inactiveShield.rotation = -0.80
+        inactiveShield.x = 315
+        inactiveShield.y = -30
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
         this.addChild(footer);
 
-        this.addChild(background, firstPlanet, secondPlanet, thirdPlanet, fourthPlanet, player, enemyPlayer, shadow, enemyShadow, footer);
+        this.addChild(background, firstPlanet, secondPlanet, thirdPlanet, fourthPlanet, player, enemyPlayer, shadow, enemyShadow, activeShield, inactiveShield, footer);
     }
 
     async start() {
