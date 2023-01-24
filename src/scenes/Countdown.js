@@ -8,6 +8,7 @@ import planet1 from '../assets/planet-1.png';
 import planet2 from '../assets/planet-2.png';
 import planet3 from '../assets/planet-3.png';
 import planet4 from '../assets/planet-4.png';
+import rover from '../assets/rover.png';
 
 export default class Countdown extends Scene {
     async onCreated() { 
@@ -36,12 +37,16 @@ export default class Countdown extends Scene {
         fourthPlanet.y = -550
         fourthPlanet.x = 950
 
+        const player = Sprite.from(rover);
+        player.anchor.set(0.5)
+        player.x = 430
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
         this.addChild(footer);
 
-        this.addChild(background, firstPlanet, secondPlanet, thirdPlanet, fourthPlanet, footer);
+        this.addChild(background, firstPlanet, secondPlanet, thirdPlanet, fourthPlanet, player, footer);
     }
 
     async start() {
