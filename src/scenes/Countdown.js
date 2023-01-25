@@ -75,12 +75,31 @@ export default class Countdown extends Scene {
         inactiveShield.x = 315
         inactiveShield.y = -30
 
+        const enemyActiveShield = Sprite.from(shieldActive)
+        enemyActiveShield.anchor.set(0.5)
+        enemyActiveShield.rotation = 2.35
+        enemyActiveShield.x = -680
+        enemyActiveShield.y =50
+
+        const enemyInactiveShield = Sprite.from(shieldInactive)
+        enemyInactiveShield.anchor.set(0.5)
+        enemyInactiveShield.rotation = 2.35
+        enemyInactiveShield.x = -560
+        enemyInactiveShield.y = -70
+
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
         this.addChild(footer);
 
-        this.addChild(background, firstPlanet, secondPlanet, thirdPlanet, fourthPlanet, player, enemyPlayer, shadow, enemyShadow, activeShield, inactiveShield, footer);
+        this.addChild(background, firstPlanet, 
+          secondPlanet, thirdPlanet, 
+          fourthPlanet, player, 
+          enemyPlayer, shadow, 
+          enemyShadow, activeShield, 
+          inactiveShield, enemyActiveShield,
+          enemyInactiveShield, footer);
     }
 
     async start() {
