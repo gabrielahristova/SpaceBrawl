@@ -116,6 +116,17 @@ export default class Countdown extends Scene {
         enemyRoverHealthBar.x = -690
         enemyRoverHealthBar.y = -45
 
+        //add health
+        const health = new PIXI.Graphics();
+		    health.beginFill(0xbfff00,1);
+		    health.drawRoundedRect(368,-80.5, 80, 10, 70);
+		    health.endFill();
+
+        const enemyHealth = new PIXI.Graphics();
+		    enemyHealth.beginFill(0xbfff00,1);
+		    enemyHealth.drawRoundedRect(-712,-50.5, 80, 10, 70);
+		    enemyHealth.endFill();
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
@@ -129,6 +140,7 @@ export default class Countdown extends Scene {
           inactiveShield, enemyActiveShield,
           enemyInactiveShield, rocket,
           roverHealthBar, enemyRoverHealthBar,
+          health, enemyHealth, 
           footer);
     }
 
