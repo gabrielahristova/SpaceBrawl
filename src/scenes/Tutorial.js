@@ -17,7 +17,7 @@ export default class Tutorial extends Scene {
         background.height = window.innerHeight 
         background.anchor.set(0.5)
 
-        const blur = new filters.BlurFilter(50, 8);
+        const blur = new filters.BlurFilter(80, 8);
         background.filters = [blur];
 
         // box image
