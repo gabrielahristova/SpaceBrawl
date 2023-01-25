@@ -17,31 +17,38 @@ import healthBar from '../assets/rover-health-bar.png';
 
 export default class Countdown extends Scene {
     async onCreated() { 
+
+        // add background
         const background = Sprite.from(playScene)
         background.width= window.innerWidth
         background.height = window.innerHeight 
         background.anchor.set(0.5)
 
+        //add planet 1
         const firstPlanet = Sprite.from(planet1);
         firstPlanet.anchor.set(0.5)
         firstPlanet.y = 400
         firstPlanet.x = 500
 
+        //add planet 2
         const secondPlanet = Sprite.from(planet2);
         secondPlanet.anchor.set(0.5)
         secondPlanet.y = -400
         secondPlanet.x = -730
-
+      
+        //add planet 3
         const thirdPlanet = Sprite.from(planet3);
         thirdPlanet.anchor.set(0.5)
         thirdPlanet.y = 365
         thirdPlanet.x = -900
 
+        //add planet 4
         const fourthPlanet = Sprite.from(planet4);
         fourthPlanet.anchor.set(0.5)
         fourthPlanet.y = -550
         fourthPlanet.x = 950
 
+        //add players
         const player = Sprite.from(rover);
         player.anchor.set(0.5)
         player.x = 430
@@ -53,6 +60,7 @@ export default class Countdown extends Scene {
         enemyPlayer.x = -700
         enemyPlayer.y = -120
 
+        //add shadows
         const shadow = Sprite.from(roverShadow);
         shadow.anchor.set(0.5)
         shadow.x = 430
@@ -65,6 +73,7 @@ export default class Countdown extends Scene {
         enemyShadow.x = -700
         enemyShadow.y = -185
 
+        //add shields
         const activeShield = Sprite.from(shieldActive)
         activeShield.anchor.set(0.5)
         activeShield.rotation = -0.80
@@ -89,12 +98,14 @@ export default class Countdown extends Scene {
         enemyInactiveShield.x = -560
         enemyInactiveShield.y = -70
 
+        //add rocket
         const rocket = Sprite.from(Rocket)
         rocket.anchor.set(0.5)
         rocket.rotation = -1.2
         rocket.x = 20
         rocket.y = -50
 
+        //add health bars
         const roverHealthBar = Sprite.from(healthBar)
         roverHealthBar.anchor.set(0.5)
         roverHealthBar.x = 425
