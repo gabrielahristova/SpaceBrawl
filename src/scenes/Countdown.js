@@ -12,6 +12,7 @@ import rover from '../assets/rover.png';
 import roverShadow from '../assets/rover-shadow.png';
 import shieldActive from '../assets/shield-active.png';
 import shieldInactive from '../assets/shield-inactive.png';
+import Rocket from '../assets/rocket.png';
 
 export default class Countdown extends Scene {
     async onCreated() { 
@@ -87,6 +88,11 @@ export default class Countdown extends Scene {
         enemyInactiveShield.x = -560
         enemyInactiveShield.y = -70
 
+        const rocket = Sprite.from(Rocket)
+        rocket.anchor.set(0.5)
+        rocket.rotation = -1.2
+        rocket.x = 20
+        rocket.y = -50
 
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
@@ -99,7 +105,8 @@ export default class Countdown extends Scene {
           enemyPlayer, shadow, 
           enemyShadow, activeShield, 
           inactiveShield, enemyActiveShield,
-          enemyInactiveShield, footer);
+          enemyInactiveShield, rocket,
+          footer);
     }
 
     async start() {
