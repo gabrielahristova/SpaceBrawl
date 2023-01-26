@@ -167,7 +167,6 @@ export default class Countdown extends Scene {
           transparent, circle,
           text, footer);
 
-          const text2 = new Text(`2`, style);
           const text3 = new Text(`1`, style); 
 
           setTimeout(() => {
