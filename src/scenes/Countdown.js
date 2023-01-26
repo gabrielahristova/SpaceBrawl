@@ -184,7 +184,7 @@ export default class Countdown extends Scene {
               this.start();
               }, "1000") 
             }, "1000")             
-          }, "2000") 
+          }, "1000") 
 
           
     }
