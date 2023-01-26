@@ -14,6 +14,7 @@ import shieldActive from '../assets/shield-active.png';
 import shieldInactive from '../assets/shield-inactive.png';
 import Rocket from '../assets/rocket.png';
 import healthBar from '../assets/rover-health-bar.png';
+import Play from './Play';
 
 export default class Countdown extends Scene {
     async onCreated() { 
@@ -127,6 +128,28 @@ export default class Countdown extends Scene {
 		    enemyHealth.drawRoundedRect(-712,-50.5, 80, 10, 70);
 		    enemyHealth.endFill();
 
+        const transparent = new PIXI.Graphics();
+        transparent.beginFill(0x2f1b64,0.5);
+        transparent.drawRect(-960,-500 , window.innerWidth,window.innerHeight);
+        transparent.endFill();
+
+        const circle = new PIXI.Graphics();
+        circle.lineStyle(20, 0xffffff);
+        circle.beginFill(0x5D248f, 0.6)
+        circle.drawCircle(-100, -50, 200)
+        circle.endFill();
+
+        const style = new TextStyle({
+          fontFamily: "Verdana",
+          fontSize: 200,
+          fill: "0xffffff",
+          fontWeight: 'bold'
+        });
+
+        const text = new Text(`3`, style);
+        text.x = -170
+        text.y = -180
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
@@ -141,14 +164,34 @@ export default class Countdown extends Scene {
           enemyInactiveShield, rocket,
           roverHealthBar, enemyRoverHealthBar,
           health, enemyHealth, 
-          footer);
+          transparent, circle,
+          text, footer);
+
+          const text2 = new Text(`2`, style);
+          const text3 = new Text(`1`, style); 
+
+          setTimeout(() => {
+            this.removeChild(text);
+            const text2 = new Text(`2`, style);
+            this.addChild(text2);
+            text2.x = -170
+            text2.y = -180
+            setTimeout(() => {
+              this.removeChild(text2);
+              this.addChild(text3);
+              text3.x = -170
+              text3.y = -180
+              setTimeout(() => {
+              this.start();
+              }, "1000") 
+            }, "1000")             
+          }, "2000") 
+
+          
     }
 
-    async start() {
-        await this.switchScene(Tutorial, { scene: 'tutorial' });
-        await this.currentScene.finish;
-    
-        this.switchScene(Countdown, { scene: 'countdown' });
+    async start() {  
+        this.switchScene(Play, { scene: 'play' });
       }
     
       switchScene(constructor, scene) {
