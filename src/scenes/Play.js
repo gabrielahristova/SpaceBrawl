@@ -125,6 +125,12 @@ export default class Play extends Scene {
 		    enemyHealth.drawRoundedRect(-747,-50.5, 115, 10, 70);
 		    enemyHealth.endFill();
 
+        //add animation to the planets
+        gsap.to(firstPlanet, {y:380, duration: 3.5, repeat: 100, yoyo: true})
+        gsap.to(secondPlanet, {y:-380, duration: 2, repeat: 100, yoyo: true})
+        gsap.to(thirdPlanet, {y:345, duration: 2.5, repeat: 100, yoyo: true})
+        gsap.to(fourthPlanet, {y:-530, duration: 3, repeat: 100, yoyo: true})
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
