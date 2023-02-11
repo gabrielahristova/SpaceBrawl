@@ -130,14 +130,23 @@ export default class Play extends Scene {
         gsap.to(thirdPlanet, {y:345, duration: 2.5, repeat: 100, yoyo: true})
         gsap.to(fourthPlanet, {y:-530, duration: 3, repeat: 100, yoyo: true})
 
-        window.addEventListener('keyup', async function keysUp(e) {
+        window.addEventListener('keydown', async function keysDown(e) {
+          console.log(e.keyCode)
           if(e.keyCode === 87 || e.keyCode === 38) {
             activeShield.visible = true
-          }})
-
-        window.addEventListener('keydown', async function keysDown(e) {
-          if(e.keyCode === 83 || e.keyCode === 39) {
+          }
+          else if (e.keyCode === 83 || e.keyCode === 40) {
             inactiveShield.visible = true
+          }
+          else if (e.keyCode === 65 || e.keyCode === 37) {
+            activeShield.rotation = -2.4
+            activeShield.x = 315
+            activeShield.y = -30
+          }
+          else if (e.keyCode === 68 || e.keyCode === 39) {
+            activeShield.rotation = -0.80
+            activeShield.x = 430
+            activeShield.y = -145
           }
         })
 
