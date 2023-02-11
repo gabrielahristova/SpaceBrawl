@@ -13,9 +13,6 @@ import shieldActive from '../assets/shield-active.png';
 import shieldInactive from '../assets/shield-inactive.png';
 import Rocket from '../assets/rocket.png';
 import healthBar from '../assets/rover-health-bar.png';
-
-let keys = {};
-
 export default class Play extends Scene {
   async onCreated() {
 
@@ -134,14 +131,18 @@ export default class Play extends Scene {
         gsap.to(fourthPlanet, {y:-530, duration: 3, repeat: 100, yoyo: true})
 
         window.addEventListener('keyup', async function keysUp(e) {
-          console.log(e.keyCode)
           if(e.keyCode === 87 || e.keyCode === 38) {
             activeShield.visible = true
           }})
 
-        window.addEventListener('keydown', keysDown)
+        window.addEventListener('keydown', async function keysDown(e) {
+          if(e.keyCode === 83 || e.keyCode === 39) {
+            inactiveShield.visible = true
+          }
+        })
 
         activeShield.visible = false;
+        inactiveShield.visible = false;
 
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
@@ -151,7 +152,7 @@ export default class Play extends Scene {
         this.addChild(background, firstPlanet, 
           secondPlanet, thirdPlanet, 
           fourthPlanet, player, 
-          enemyPlayer, activeShield, shadow, 
+          enemyPlayer, activeShield, inactiveShield, shadow, 
           enemyShadow,roverHealthBar, 
           enemyRoverHealthBar, health, 
           enemyHealth, footer);
