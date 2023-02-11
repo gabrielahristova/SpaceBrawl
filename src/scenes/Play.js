@@ -14,6 +14,8 @@ import shieldInactive from '../assets/shield-inactive.png';
 import Rocket from '../assets/rocket.png';
 import healthBar from '../assets/rover-health-bar.png';
 
+let keys = {};
+
 export default class Play extends Scene {
   async onCreated() {
 
@@ -131,6 +133,16 @@ export default class Play extends Scene {
         gsap.to(thirdPlanet, {y:345, duration: 2.5, repeat: 100, yoyo: true})
         gsap.to(fourthPlanet, {y:-530, duration: 3, repeat: 100, yoyo: true})
 
+        window.addEventListener('keyup', async function keysUp(e) {
+          console.log(e.keyCode)
+          if(e.keyCode === 87 || e.keyCode === 38) {
+            activeShield.visible = true
+          }})
+
+        window.addEventListener('keydown', keysDown)
+
+        activeShield.visible = false;
+
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
         footer.y = window.innerHeight / 2 - footer.height;
@@ -139,12 +151,11 @@ export default class Play extends Scene {
         this.addChild(background, firstPlanet, 
           secondPlanet, thirdPlanet, 
           fourthPlanet, player, 
-          enemyPlayer, shadow, 
+          enemyPlayer, activeShield, shadow, 
           enemyShadow,roverHealthBar, 
           enemyRoverHealthBar, health, 
           enemyHealth, footer);
-  }
-
+        }
   /**
    * Hook called by the application when the browser window is resized.
    * Use this to re-arrange the game elements according to the window size
