@@ -1,4 +1,4 @@
-import { Sprite } from 'pixi.js';
+import { Sprite, Texture } from 'pixi.js';
 import Scene from './Scene';
 import gsap from 'gsap';
 import playScene from '../assets/play-scene.png';
@@ -13,6 +13,16 @@ import shieldActive from '../assets/shield-active.png';
 import shieldInactive from '../assets/shield-inactive.png';
 import Rocket from '../assets/rocket.png';
 import healthBar from '../assets/rover-health-bar.png';
+import path1 from '../assets/path-1.svg';
+import path2 from '../assets/path-2.svg';
+import path3 from '../assets/path-3.svg';
+import path4 from '../assets/path-4.svg';
+import path5 from '../assets/path-5.svg';
+import path6 from '../assets/path-6.svg';
+import path7 from '../assets/path-7.svg';
+import path8 from '../assets/path-8.svg';
+import path9 from '../assets/path-9.svg';
+import path10 from '../assets/path-10.svg';
 export default class Play extends Scene {
   async onCreated() {
 
@@ -139,11 +149,19 @@ export default class Play extends Scene {
             inactiveShield.visible = true
           }
           else if (e.keyCode === 65 || e.keyCode === 37) {
+            inactiveShield.rotation = 0.8
+            inactiveShield.x = 430
+            inactiveShield.y = -150
+
             activeShield.rotation = -2.4
             activeShield.x = 315
             activeShield.y = -30
           }
           else if (e.keyCode === 68 || e.keyCode === 39) {
+            inactiveShield.rotation = -0.80
+            inactiveShield.x = 315
+            inactiveShield.y = -30
+
             activeShield.rotation = -0.80
             activeShield.x = 430
             activeShield.y = -145
@@ -152,6 +170,17 @@ export default class Play extends Scene {
 
         activeShield.visible = false;
         inactiveShield.visible = false;
+
+        // let  texture1 = PIXI.Texture.from('data:image/svg+xml;charset=utf8,' + path1);
+        // let  texture2 = PIXI.Texture.from(path2);
+        // let  texture3 = PIXI.Texture.from(path3);
+        // let  texture4 = PIXI.Texture.from(path4);
+        // let  texture5 = PIXI.Texture.from(path5);
+        // let  texture6 = PIXI.Texture.from(path6);
+        // let  texture7 = PIXI.Texture.from(path7);
+        // let  texture8 = PIXI.Texture.from(path8);
+        // let  texture9 = PIXI.Texture.from(path9);
+        // let  texture10 = PIXI.Texture.from(path10);
 
         const footer = new Footer();
         footer.x = - window.innerWidth / 2;
