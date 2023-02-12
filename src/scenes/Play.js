@@ -141,13 +141,15 @@ export default class Play extends Scene {
         gsap.to(fourthPlanet, {y:-530, duration: 3, repeat: 100, yoyo: true})
 
         window.addEventListener('keydown', async function keysDown(e) {
-          console.log(e.keyCode)
+          //W
           if(e.keyCode === 87 || e.keyCode === 38) {
             activeShield.visible = true
           }
+          //S
           else if (e.keyCode === 83 || e.keyCode === 40) {
             inactiveShield.visible = true
           }
+          //A
           else if (e.keyCode === 65 || e.keyCode === 37) {
             inactiveShield.rotation = 0.8
             inactiveShield.x = 430
@@ -157,6 +159,7 @@ export default class Play extends Scene {
             activeShield.x = 315
             activeShield.y = -30
           }
+          //D
           else if (e.keyCode === 68 || e.keyCode === 39) {
             inactiveShield.rotation = -0.80
             inactiveShield.x = 315
@@ -168,8 +171,49 @@ export default class Play extends Scene {
           }
         })
 
+
+        let randomKeys= [87, 83, 65, 68, 38, 40, 37, 39]
+
+        async function getRandomKeys(keys) {
+          let num = Math.floor(Math.random() * randomKeys.length)
+          if (num === 0) {
+            num = 1;
+          }
+          let key = keys[num]
+          console.log(key)
+        }
+
         activeShield.visible = false;
         inactiveShield.visible = false;
+        enemyActiveShield.visible = false;
+        enemyInactiveShield.visible = false;
+
+
+        // for(let i = 0; i < randomKeys.length; i++) {
+        // let num = getRandomKeys(randomKeys)
+        //   //W
+        //   if(num == 87 || num == 38) {
+        //     enemyActiveShield.visible = true
+        //   }
+        //   //S
+        //   else if (num == 83 || num == 40) {
+        //     enemyInactiveShield.visible = true
+        //   }
+        //   //A
+        //   else if (num === 65 || num === 37) {
+            
+        //   }
+        //   //D
+        //   else if (num === 68 || num === 39) {
+        //     enemyActiveShield.rotation = 2.35
+        //     enemyActiveShield.x = -680
+        //     enemyActiveShield.y =50
+
+        //     enemyInactiveShield.rotation = 2.35
+        //     enemyInactiveShield.x = -560
+        //     enemyInactiveShield.y = -70
+        //   }
+        // }
 
         // let  texture1 = PIXI.Texture.from('data:image/svg+xml;charset=utf8,' + path1);
         // let  texture2 = PIXI.Texture.from(path2);
@@ -190,7 +234,9 @@ export default class Play extends Scene {
         this.addChild(background, firstPlanet, 
           secondPlanet, thirdPlanet, 
           fourthPlanet, player, 
-          enemyPlayer, activeShield, inactiveShield, shadow, 
+          enemyPlayer, activeShield, 
+          inactiveShield, enemyActiveShield, 
+          enemyInactiveShield, shadow, 
           enemyShadow,roverHealthBar, 
           enemyRoverHealthBar, health, 
           enemyHealth, footer);
